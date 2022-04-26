@@ -9,21 +9,19 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>account-microservice</artifactId>
+    <artifactId>notification-microservice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>account-microservice</name>
+    <name>notification-microservice</name>
+    <description>notification-microservice</description>
 
     <properties>
         <java.version>11</java.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 

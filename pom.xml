@@ -19,6 +19,7 @@
         <module>account-microservice</module>
         <module>transaction-microservice</module>
         <module>notification-microservice</module>
+        <module>api-gateway</module>
     </modules>
 
     <properties>

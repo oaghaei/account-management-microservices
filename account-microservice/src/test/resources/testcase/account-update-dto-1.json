@@ -1,0 +1,6 @@
+{
+  "accountNumber" : "1234",
+  "customerId": 12345678910,
+  "balance": 2000,
+  "accountTypeId": 2
+}

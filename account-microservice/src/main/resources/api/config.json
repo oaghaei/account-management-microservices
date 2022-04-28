@@ -1,0 +1,11 @@
+{
+  "developerName": "Omid Aghaei",
+  "developerEmail": "omd.aghaei@gmail.com",
+  "modelPackage": "com.reloadly.api.dto",
+  "apiPackage": "com.reloadly.api",
+  "dateLibrary": "java11",
+  "useBeanValidation": true,
+  "interfaceOnly": true,
+  "useOptional": true,
+  "library": "spring-boot"
+}

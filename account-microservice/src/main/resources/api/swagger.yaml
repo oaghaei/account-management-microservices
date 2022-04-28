@@ -1,0 +1,124 @@
+openapi: 3.0.2
+info:
+  title: Accounts
+  description: API to manage accounts
+  version: 1.0.0
+tags:
+  - name: Accounting
+    description: Accounting system
+paths:
+  /account/register:
+    post:
+      tags:
+        - Accounting
+      summary: register an account
+      operationId: register
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountDto'
+      responses:
+        201:
+          description: new account was registered
+  /account/update:
+    patch:
+      tags:
+        - Accounting
+      summary: update an account
+      operationId: update
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccountDto'
+      responses:
+        200:
+          description: account was updated
+  /account/load/{accountNumber}:
+    get:
+      tags:
+        - Accounting
+      summary: get an account by AccountNumber
+      operationId: loadByAccountNumber
+      parameters:
+        - in: path
+          name: accountNumber
+          description: 'Account number'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Account was loaded'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountDto'
+components:
+  schemas:
+    ErrorDto:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          description: Problem type code
+        message:
+          type: string
+          description: A short, summary of the problem type
+        uri:
+          type: string
+          format: uri
+          description: An absolute URI that identifies the problem type
+          default: 'about:blank'
+        dateTime:
+          type: string
+          format: date-time
+          nullable: false
+          description: Error date (yyyy-MM-dd HH:mm:ss)
+    AccountDto:
+      type: object
+      required:
+        - userId
+        - accountNumber
+        - balance
+      properties:
+        customerId:
+          type: integer
+          format: int64
+          minimum: 1
+          description: customer identifier
+        accountNumber:
+          type: string
+          nullable: false
+          description: Account Number
+        balance:
+          type: integer
+          format: int64
+          minimum: 0
+          description: Account balance
+        accountTypeId:
+          description: Account type identifier
+          type: integer
+          format: int64
+    UpdateAccountDto:
+      type: object
+      required:
+        - accountNumber
+      properties:
+        accountNumber:
+          type: string
+          nullable: false
+          description: Account Number
+        customerId:
+          type: integer
+          format: int64
+          minimum: 1
+          description: customer identifier
+        accountTypeId:
+          description: Account type identifier
+          type: integer
+          format: int64

@@ -20,6 +20,7 @@
         <module>transaction-microservice</module>
         <module>notification-microservice</module>
         <module>api-gateway</module>
+        <module>common-dto</module>
     </modules>
 
     <properties>
